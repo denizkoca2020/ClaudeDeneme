@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Balonlar">
+  <meta name="theme-color" content="#7ec8ff">
+  <title>Balon Patlatma</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <!-- Oyun sırasında üstte görünen bilgiler -->
+  <div id="hud" class="hidden">
+    <button id="homeBtn" class="round-btn" aria-label="Ana ekran">🏠</button>
+    <div id="score" class="pill">⭐ <span id="scoreValue">0</span></div>
+    <div id="level" class="pill">🎈 <span id="levelValue">1</span></div>
+    <button id="muteBtn" class="round-btn" aria-label="Ses">🔊</button>
+  </div>
+
+  <!-- Başlangıç ekranı -->
+  <div id="startScreen" class="screen">
+    <h1 class="title">🎈 Balon Patlatma 🎈</h1>
+    <button id="startBtn" class="play-btn" aria-label="Oyna">▶</button>
+    <div id="best" class="pill best hidden">🏆 <span id="bestValue">0</span></div>
+  </div>
+
+  <!-- Seviye atlama kutlaması -->
+  <div id="celebrate" class="celebrate hidden">
+    <div class="celebrate-emoji">🎉</div>
+    <div class="celebrate-text">Harika! <span id="celebrateLevel">2</span></div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

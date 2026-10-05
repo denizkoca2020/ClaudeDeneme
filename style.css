@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+  background: #7ec8ff;
+  font-family: "Chalkboard SE", "Comic Sans MS", "Trebuchet MS", system-ui, sans-serif;
+  color: #fff;
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  display: block;
+  touch-action: none;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- Üst bilgi çubuğu ---------- */
+#hud {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 12px);
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+#hud > * { pointer-events: auto; }
+#muteBtn { margin-left: auto; }
+
+.pill {
+  background: rgba(255, 255, 255, 0.85);
+  color: #3a3a6a;
+  font-size: 34px;
+  font-weight: bold;
+  padding: 8px 22px;
+  border-radius: 40px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+  min-width: 120px;
+  text-align: center;
+}
+
+.round-btn {
+  width: 72px;
+  height: 72px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 38px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+.round-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12); }
+
+/* ---------- Başlangıç ekranı ---------- */
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 16px;
+  background: rgba(70, 140, 220, 0.25);
+}
+
+.title {
+  font-size: clamp(40px, 8vw, 84px);
+  text-align: center;
+  text-shadow: 0 5px 0 #3b6fb6, 0 8px 18px rgba(0, 0, 0, 0.25);
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+.play-btn {
+  width: 200px;
+  height: 200px;
+  border: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #8ff5c4, #06d6a0 60%, #04a57b);
+  color: #fff;
+  font-size: 100px;
+  padding-left: 18px;
+  box-shadow: 0 10px 0 #038a67, 0 16px 30px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.play-btn:active { transform: translateY(8px) scale(0.97); box-shadow: 0 2px 0 #038a67; }
+
+.best { font-size: 40px; }
+
+/* ---------- Kutlama ---------- */
+.celebrate {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: pop-in 0.5s cubic-bezier(.2, 1.6, .4, 1);
+}
+.celebrate-emoji { font-size: 160px; }
+.celebrate-text {
+  font-size: clamp(48px, 9vw, 96px);
+  font-weight: bold;
+  text-shadow: 0 5px 0 #c2410c, 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+@keyframes pop-in {
+  from { transform: scale(0.3); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
